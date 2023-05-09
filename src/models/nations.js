@@ -8,8 +8,39 @@ mongoose.connect(url).then(() => {
 }); //connect to database
 
 const NationSchema = new mongoose.Schema({
+
+  username: {
+    type: String,
+    required: false,
+  },
+
+  password: {
+    type: String,
+    required: false,
+  },
+
+  email: {
+    type: String,
+    required: false,
+  },
+
   name: {
     type: String,
+    required: true,
+  },
+
+  address: {
+    type: String,
+    required: false,
+  },
+
+  longitude: {
+    type: Number,
+    required: false,
+  },
+
+  latitude: {
+    type: Number,
     required: true,
   },
 
@@ -25,6 +56,16 @@ const NationSchema = new mongoose.Schema({
 
   guestCount: {
     type: Number,
+    required: true,
+  },
+
+  openingHours: {
+    type: String,
+    required: false,
+  },
+
+  image: {
+    type: mongoose.SchemaTypes.Url,
     required: false,
   },
 });
@@ -38,5 +79,4 @@ NationSchema.set("toJSON", {
 });
 
 const NationModel = mongoose.model("nations", NationSchema);
-//module.exports = NationModel;
 export default NationModel;

@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 //const mongoose = require("mongoose");
 
+const mongoose = require('mongoose');
+
 const url =
   "mongodb+srv://oliviahogstedt:89WWYRRv0iQKFj4G@cluster0.kfs5n4j.mongodb.net/Kandidat?retryWrites=true&w=majority";
 mongoose.connect(url).then(() => {
@@ -21,6 +23,7 @@ const NationSchema = new mongoose.Schema({
 
   email: {
     type: String,
+    trim: true,
     required: false,
   },
 
@@ -65,9 +68,26 @@ const NationSchema = new mongoose.Schema({
   },
 
   image: {
-    type: mongoose.SchemaTypes.Url,
+    type: String,
     required: false,
+    match: /^https?:\/\/.*$/i,
   },
+  header: {
+    type: String,
+    required: false,
+    match: /^https?:\/\/.*$/i,
+  },
+  menu: {
+    public_id: {
+      type: String,
+      required: false,
+    },
+    url: {
+      type: String,
+      required: false,
+      match: /^https?:\/\/.*$/i,
+    },
+  }
 });
 
 NationSchema.set("toJSON", {

@@ -1,13 +1,9 @@
 import mongoose from "mongoose";
-//const mongoose = require("mongoose");
-
-const mongoose = require('mongoose');
 
 const url =
   "mongodb+srv://oliviahogstedt:89WWYRRv0iQKFj4G@cluster0.kfs5n4j.mongodb.net/Kandidat?retryWrites=true&w=majority";
 mongoose.connect(url).then(() => {
-  console.log("connected");
-}); //connect to database
+}); 
 
 const NationSchema = new mongoose.Schema({
 
